@@ -24,12 +24,10 @@ class RegexMatcher:
             text = input_data
 
         for pattern in self.expressions:
-            # Find matches and add them to the result list along with their starting position
             for match in pattern.finditer(text):
-                if match.group():  # Check if the match is non-empty
+                if match.group():  
                     matches.append((match.group(), match.start()))
-        
-        # Remove duplicates while preserving the order
+
         matches = list(dict.fromkeys(matches))
         return matches
 
